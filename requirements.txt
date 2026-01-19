@@ -1,0 +1,26 @@
+# ---------------- CORE CV / DL ----------------
+ultralytics>=8.1.0
+torch>=2.0.0
+torchvision>=0.15.0
+numpy>=1.23.0
+opencv-python>=4.8.0
+
+# ---------------- DATABASE ----------------
+mysql-connector-python>=8.2.0
+
+# ---------------- ENV CONFIG ----------------
+python-dotenv>=1.0.0
+
+# ---------------- IMAGE / VIDEO UTILS ----------------
+Pillow>=10.0.0
+
+# ---------------- THREADING / PERF ----------------
+tqdm>=4.66.0
+
+# ---------------- OPTIONAL (IF USED IN helper_functions) ----------------
+scipy>=1.10.0
+scikit-learn>=1.3.0
+
+# ---------------- LOGGING / TIME ----------------
+pytz>=2023.3
+loguru>=0.7.0

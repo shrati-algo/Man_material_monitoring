@@ -1,0 +1,30 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv/
+
+# ==============================
+# YOLO / Deep Learning Artifacts
+# ==============================
+
+# YOLO model weights (YOLOv11x / YOLOv8 / custom)
+*.pt
+*.onnx
+*.engine
+
+# If you want to ignore only YOLO11x specifically
+yolo11x.pt
+
+# Training / inference outputs
+runs/
+output/
+outputs/
+
+# Logs
+*.log
