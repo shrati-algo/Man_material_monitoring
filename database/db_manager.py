@@ -26,9 +26,9 @@ def init_violation_table():
             line VARCHAR(50),
             violation_type VARCHAR(100),
             message TEXT,
+            frame_path TEXT,
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         )
     """)
     cursor.close()
     conn.close()
-

@@ -173,6 +173,9 @@ def main(line_number, rtsp_dict, camera_cfg, stop_event):
                     (0, 255, 255),
                     2
                 )
+                
+                out_path = f"output_frames/frame_cam{camera_id}_{timestamp}.jpg"
+                cv2.imwrite(out_path, annotated)
 
                 # -------- EMIT RESULTS --------
                 emit_frame_result(
@@ -180,12 +183,12 @@ def main(line_number, rtsp_dict, camera_cfg, stop_event):
                     cam_id=camera_id,
                     yolo_res=yolo_res,
                     material=(mat_cls, mat_prob),
-                    timestamp=time.time()
+                    timestamp=time.time(),
+                    frame_path=out_path
                 )
 
                 # -------- SAVE FRAME (OPTIONAL) --------
-                out_path = f"output_frames/frame_cam{camera_id}_{timestamp}.jpg"
-                cv2.imwrite(out_path, annotated)
+                
 
             t2 = time.time()
             print(f"[LINE {line_number}] ROI YOLO + MATERIAL | {t2 - t1:.3f}s")

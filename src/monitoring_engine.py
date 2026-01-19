@@ -3,7 +3,10 @@ from collections import defaultdict
 from violation_handler import raise_violation
 from config_loader import get_line_thresholds
 # ---------------- STATE ----------------
+
 last_seen_time = defaultdict(lambda: time.time())
+
+#processing function which evaluates on basis of the rules, add violations in the table
 
 
 def process_frame(
@@ -11,8 +14,8 @@ def process_frame(
     cam_id,
     yolo_res,
     material,
-    timestamp
-):
+    timestamp,
+    frame_path):
     """
     cam_id  : camera id (int or string)
     yolo_res: YOLO result object
@@ -45,7 +48,8 @@ def process_frame(
             cam_id,
             line_id,
             "LOW_MAN_COUNT",
-            f"Count={person_count}, Min={min_person_count}"
+            f"Count={person_count}, Min={min_person_count}",
+            frame_path=frame_path
         )
 
     # -------- RULE 2: PERSON ABSENT --------
@@ -55,7 +59,8 @@ def process_frame(
             cam_id,
             line_id,
             "PERSON_ABSENT",
-            f"Absent for {elapsed/60:.1f} mins"
+            f"Absent for {elapsed/60:.1f} mins",
+            frame_path=frame_path
         )
 
     # -------- RULE 3: MATERIAL ABSENT --------
@@ -64,5 +69,6 @@ def process_frame(
             cam_id,
             line_id,
             "MATERIAL_ABSENT",
-            f"Absent for {elapsed/60:.1f} mins"
+            f"Absent for {elapsed/60:.1f} mins",
+            frame_path=frame_path
         )
