@@ -25,6 +25,7 @@ yolo11x.pt
 runs/
 output/
 outputs/
+output_frames/
 
 # Logs
 *.log
